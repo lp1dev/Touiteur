@@ -9,11 +9,13 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { TextMessage } from '../pages/messages/components/text-message.component';
 import { ImageMessage } from '../pages/messages/components/image-message.component'
+import { PostPage } from '../pages/post/post.component';
 
 @NgModule({
   declarations: [
     MyApp,
     MessagesPage,
+    PostPage,
     TextMessage,
     ImageMessage
   ],
@@ -24,7 +26,8 @@ import { ImageMessage } from '../pages/messages/components/image-message.compone
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    MessagesPage
+    MessagesPage,
+    PostPage
   ],
   providers: [
     StatusBar,

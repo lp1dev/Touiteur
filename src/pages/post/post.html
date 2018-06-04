@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Post a message</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-item class="post-content">
+      <ion-label floating>What's on your mind?</ion-label>
+      <ion-input [(ngModel)]="message.content" type="text"></ion-input>
+    </ion-item>
+    <ion-item class="post-image-bool">
+      <ion-label>Add an Image</ion-label>
+      <ion-checkbox [(ngModel)]="message.type"></ion-checkbox>       
+    </ion-item>
+    <ion-item class="post-image-content" *ngIf="message.type == 1">
+        <ion-label floating>Image URL</ion-label>
+        <ion-input [(ngModel)]="message.image" type="text"></ion-input>
+      </ion-item>
+    <div class="post-footer">
+      <button class="post-button" (click)="send()" ion-button> Send</button>
+    </div>
+    
+  </ion-content>

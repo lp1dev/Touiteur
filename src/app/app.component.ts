@@ -3,6 +3,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MessagesPage } from '../pages/messages/messages';
+import { PostPage } from '../pages/post/post.component';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,7 +20,8 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Messages', component: MessagesPage }
+      { title: 'Messages', component: MessagesPage },
+      { title: 'Post', component: PostPage }
     ];
 
   }
