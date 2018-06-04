@@ -4,7 +4,8 @@ import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'messages-list',
-  templateUrl: 'messages.html'
+  templateUrl: 'messages.html',
+  
 })
 export class MessagesPage {
   selectedItem: any

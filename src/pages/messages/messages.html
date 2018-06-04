@@ -8,27 +8,31 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngIf="selectedItem; else allItems" padding>
-      <div class="message-header">
-          <img class="message-avatar" [src]="selectedItem.avatar"/>
-          <ion-card-title class="message-author">@{{selectedItem.author}}</ion-card-title>
-          <span class="message-date">{{selectedItem.date | date:'dd/MM/yyyy' }}</span>
-        </div>
-    <ion-card-content class="message-content">{{selectedItem.content}}</ion-card-content>
-  </ion-card>
+  <div *ngIf="selectedItem; else allItems">
+      <text-message
+      *ngIf="selectedItem.type == 0"
+      [message]="selectedItem"
+      [fullscreen]="true"></text-message>
+      <image-message
+      *ngIf="selectedItem.type == 1"
+      [message]="selectedItem"
+      [fullscreen]="true"></image-message>
+  </div>
   <ng-template #allItems>
     <ion-list>
-      <ion-card *ngFor="let message of messages" 
+      <div *ngFor="let message of messages"
         (click)="itemTapped($event, message)">
-        <div class="message-header">
-            <img class="message-avatar" [src]="message.avatar"/>
-            <ion-card-title class="message-author">@{{message.author}}</ion-card-title>
-            <span class="message-date">{{message.date | date:'dd/MM/yyyy' }}</span>
-          </div>
-        <ion-card-content class="message-content">
-          {{message.content}}
-        </ion-card-content>
-      </ion-card>
+        <text-message 
+          *ngIf="message.type == 0"
+          [message]="message"
+          [fullscreen]="false">
+        </text-message>
+        <image-message *ngIf="message.type == 1"
+          [message]="message"
+          [fullscreen]="false">
+        </image-message>
+      </div>
+
     </ion-list>
   </ng-template>
 

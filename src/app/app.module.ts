@@ -7,11 +7,15 @@ import { MessagesPage } from '../pages/messages/messages';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { TextMessage } from '../pages/messages/components/text-message.component';
+import { ImageMessage } from '../pages/messages/components/image-message.component'
 
 @NgModule({
   declarations: [
     MyApp,
-    MessagesPage
+    MessagesPage,
+    TextMessage,
+    ImageMessage
   ],
   imports: [
     BrowserModule,
