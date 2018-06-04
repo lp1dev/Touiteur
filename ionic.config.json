@@ -1,6 +1,6 @@
 {
   "name": "Touiteur",
-  "app_id": "",
+  "app_id": "eu.lp1.touiteur",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
