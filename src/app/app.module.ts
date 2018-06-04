@@ -10,6 +10,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TextMessage } from '../pages/messages/components/text-message.component';
 import { ImageMessage } from '../pages/messages/components/image-message.component'
 import { PostPage } from '../pages/post/post.component';
+import { MessagesService } from '../pages/messages/messages.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { PostPage } from '../pages/post/post.component';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -32,7 +35,8 @@ import { PostPage } from '../pages/post/post.component';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    MessagesService
   ]
 })
 export class AppModule {}
