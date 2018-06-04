@@ -8,19 +8,23 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="selectedItem; else allItems" padding>
-    <h1>{{selectedItem.author}}</h1>
-    <b>{{selectedItem.content}}</b>
-  </div>
+  <ion-card *ngIf="selectedItem; else allItems" padding>
+      <div class="message-header">
+          <img class="message-avatar" [src]="selectedItem.avatar"/>
+          <ion-card-title class="message-author">@{{selectedItem.author}}</ion-card-title>
+          <span class="message-date">{{selectedItem.date | date:'dd/MM/yyyy' }}</span>
+        </div>
+    <ion-card-content class="message-content">{{selectedItem.content}}</ion-card-content>
+  </ion-card>
   <ng-template #allItems>
     <ion-list>
       <ion-card *ngFor="let message of messages" 
         (click)="itemTapped($event, message)">
         <div class="message-header">
-          <img class="message-avatar" [src]="message.avatar"/>
-          <ion-card-title class="message-author">@{{message.author}}</ion-card-title>
-          <span class="message-date">{{message.date | date:'dd/MM/yyyy' }}</span>
-        </div>
+            <img class="message-avatar" [src]="message.avatar"/>
+            <ion-card-title class="message-author">@{{message.author}}</ion-card-title>
+            <span class="message-date">{{message.date | date:'dd/MM/yyyy' }}</span>
+          </div>
         <ion-card-content class="message-content">
           {{message.content}}
         </ion-card-content>

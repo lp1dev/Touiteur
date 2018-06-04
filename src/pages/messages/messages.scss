@@ -1,4 +1,5 @@
 messages-list {
+  color: color($colors, font-primary);
   .message-header {
     display:flex;
     .message-avatar {
@@ -12,7 +13,7 @@ messages-list {
       font-size: 2vh;
     }
     .message-date {
-      color: #999999;
+      color: color($colors, font-secondary);
       padding: 1.3vh;
     }
   }
