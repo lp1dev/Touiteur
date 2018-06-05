@@ -12,14 +12,9 @@
       <ion-label floating>What's on your mind?</ion-label>
       <ion-input [(ngModel)]="message.content" type="text"></ion-input>
     </ion-item>
-    <ion-item class="post-image-bool">
-      <ion-label>Add an Image</ion-label>
-      <ion-checkbox [(ngModel)]="message.type"></ion-checkbox>       
-    </ion-item>
-    <ion-item class="post-image-content" *ngIf="message.type == 1">
-        <ion-label floating>Image URL</ion-label>
-        <ion-input [(ngModel)]="message.image" type="text"></ion-input>
-      </ion-item>
+    <div class="post-footer" *ngIf="!message.image">
+        <button color="secondary" ion-button (click)="selectPicture()">Add a picture</button>
+    </div>
     <div class="post-footer">
       <button class="post-button" (click)="send()" ion-button> Send</button>
     </div>

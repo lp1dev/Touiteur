@@ -1,5 +1,6 @@
 import { Component, Input } from "@angular/core";
 import { Message } from "../models";
+import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
   selector: 'text-message',
@@ -8,7 +9,7 @@ import { Message } from "../models";
 export class TextMessage {
   @Input() message: Message
   @Input() fullscreen: boolean
-  constructor() {
+  constructor(public sanitizer: DomSanitizer) {
     
   }
 }

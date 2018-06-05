@@ -35,6 +35,7 @@
 
 ## Part 4
 
+- Create a http.service.ts
 - Create a messages.service.ts
 - Add a messages attribute bound to the Mock
 - Use the messagesService in the messages component
@@ -56,10 +57,34 @@
 - Ajouter un pull to refresh https://ionicframework.com/docs/api/components/refresher/Refresher/
     
 ## Part 6 - Refactoring before adding the users
+
 - Create a src/shared directory + module
 - Add the injectable config to its providers
 - Add the sharedModule to appModule
 - Move everything messages-related to the messages module
 - Create a config injectable
 
-##
+## Part 7 - Users
+
+- create a src/users directory + module
+- Add it to the appModule
+- Add the Login Page with the signup button
+- Add the Signup Page
+- Add the Image-Picker module https://ionicframework.com/docs/native/image-picker/
+- Add the Base64 module https://ionicframework.com/docs/native/base64/
+- Add the userService and signup method
+- Add a toast when the signup is OK or not
+- Add the login method
+    - DO not return this http.post, add a step where the token is saved in userService (const loginSubject inside)
+
+## Part 8
+
+- create a httpService if none (for the token)
+- Inject the token in the httpService
+- Add the token in the usersService.login method
+- Display the post login pages only if needed by adding a getUser after the login
+    and subscribe to user subject in app.component
+- Add a redirection after login
+- Update the post page with real user data and image upload
+- Add the Profile page
+- Add a logout usersService method + button on the profile

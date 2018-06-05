@@ -1,11 +1,12 @@
 <ion-card>
   <div class="message-header">
-    <img class="message-avatar" [src]="message.avatar" />
-    <ion-card-title class="message-author">@{{message.author}}</ion-card-title>
+    <img class="message-avatar" [src]="sanitizer.bypassSecurityTrustUrl(message.author.avatar)" />
+    <ion-card-title class="message-author">@{{message.author.login}}</ion-card-title>
     <span class="message-date">{{message.date | date:'dd/MM/yyyy' }}</span>
   </div>
   <ion-card-content class="message-content">
-    <img [class]="fullscreen ? 'message-image fullscreen': 'message-image'" [src]="message.image"/>
+    <img [class]="fullscreen ? 'message-image fullscreen': 'message-image'"
+    [src]="sanitizer.bypassSecurityTrustUrl(message.image)"/>
     {{message.content}}
   </ion-card-content>
 </ion-card>

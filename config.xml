@@ -84,4 +84,8 @@
     <engine name="android" spec="~6.3.0" />
     <allow-navigation href="http://192.168.1.80:8100" />
     <allow-navigation href="http://192.168.1.98:8100" />
+    <plugin name="cordova-plugin-telerik-imagepicker" spec="^2.2.1">
+        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="Upload an user's avatar" />
+    </plugin>
+    <plugin name="com-badrit-base64" spec="^0.2.0" />
 </widget>

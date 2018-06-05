@@ -1,23 +1,22 @@
 import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http"
 import { Message } from "./models";
 import { Subject } from "rxjs/Subject";
 import { Observable } from "rxjs/Observable"
 import { Config } from "../shared/config";
+import { HttpService } from "../shared/http.service";
 
 @Injectable()
 export class MessagesService {
   subject: Subject<Array<Message>> = new Subject()
   observable: Observable<Array<Message>> = this.subject.asObservable()
 
-  constructor(public http: Http, public config: Config) {
+  constructor(public http: HttpService, public config: Config) {
   }
 
   loadMessages(refresher = null) {
-    console.log(this.config)
     this
     .http
-    .get(this.config.API_URL + '/messages')
+    .get('messages')
     .subscribe((response) => {
         console.log(response)
         this.subject.next(response.json())
@@ -29,6 +28,8 @@ export class MessagesService {
   }
 
   addMessage(message) {
-    // this.__messages.push(message)
+    return this
+              .http
+              .post('messages', message)
   }
 }

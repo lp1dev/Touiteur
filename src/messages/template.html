@@ -24,7 +24,7 @@
   </div>
   <ng-template #allItems>
     <ion-list>
-      <div *ngFor="let message of messages"
+      <div *ngFor="let message of messagesService.subject | async"
         (click)="itemTapped($event, message)">
         <text-message 
           *ngIf="message.type == 0"

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Message } from './models'
 import { NavController, NavParams } from 'ionic-angular';
 import { MessagesService } from './service';
 
@@ -10,7 +9,6 @@ import { MessagesService } from './service';
 })
 export class MessagesPage implements OnInit{
   selectedItem: any
-  messages: Array<Message>
 
   constructor(
     public navCtrl: NavController, 
@@ -19,18 +17,12 @@ export class MessagesPage implements OnInit{
   ) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('message')
-    this.messages = []
   }
 
   ngOnInit() {
     this
       .messagesService
       .loadMessages()
-
-    this
-      .messagesService
-      .observable
-      .subscribe((messages) => this.messages = messages)
   }
 
   itemTapped(event, message) {

@@ -8,8 +8,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 import { SharedModule } from '../shared/shared.module';
-import { MessagesPage } from '../messages/page';
 import { MessagesModule } from '../messages/module';
+import { UsersModule } from '../users/module';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { MessagesModule } from '../messages/module';
     HttpModule,
     IonicModule.forRoot(MyApp),
     SharedModule,
-    MessagesModule
+    MessagesModule,
+    UsersModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

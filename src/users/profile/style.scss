@@ -1,0 +1,15 @@
+profile-page {
+  .profile-content {
+    text-align: center;
+    .profile {
+      display: flex;
+      flex-direction: column;
+      img {
+        height: 40vh;
+        width: auto;
+        margin: auto;
+        border-radius: 10vh;
+      }
+    }
+  }
+}
