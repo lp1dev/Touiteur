@@ -1,8 +1,8 @@
 import { Component } from "@angular/core";
-import { Message } from "../messages/messages-mock";
-import { MessagesService } from "../messages/messages.service";
+import { Message } from "../../messages/models";
+import { MessagesService } from "../../messages/service";
 import { NavController } from "ionic-angular";
-import { MessagesPage } from "../messages/messages";
+import { MessagesPage } from "../../messages/page";
 
 @Component({
   selector: 'post-page',

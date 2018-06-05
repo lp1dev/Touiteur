@@ -2,8 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { MessagesPage } from '../pages/messages/messages';
-import { PostPage } from '../pages/post/post.component';
+import { PostPage } from '../messages/messages-post/post.component';
+import { MessagesPage } from '../messages/page';
 
 @Component({
   templateUrl: 'app.html'

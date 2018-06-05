@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { Message } from "../messages-mock";
+import { Message } from "../models";
 
 @Component({
   selector: 'image-message',

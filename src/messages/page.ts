@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Message } from './messages-mock'
+import { Message } from './models'
 import { NavController, NavParams } from 'ionic-angular';
-import { MessagesService } from './messages.service';
+import { MessagesService } from './service';
 
 @Component({
   selector: 'messages-list',
-  templateUrl: 'messages.html',
+  templateUrl: 'template.html',
   
 })
 export class MessagesPage implements OnInit{
