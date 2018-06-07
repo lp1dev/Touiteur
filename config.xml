@@ -88,4 +88,5 @@
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="Upload an user's avatar" />
     </plugin>
     <plugin name="com-badrit-base64" spec="^0.2.0" />
+    <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
 </widget>

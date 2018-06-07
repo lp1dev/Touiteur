@@ -13,18 +13,20 @@ export class MessagesService {
   constructor(public http: HttpService, public config: Config) {
   }
 
-  loadMessages(refresher = null) {
+  loadMessages(page=1, items=6) {
     this
     .http
-    .get('messages')
+    .get(`messages?page=${page}&items=${items}`)
     .subscribe((response) => {
         console.log(response)
         this.subject.next(response.json())
-        if (refresher) {
-          refresher.complete()
-        }
       },
-      (error) => console.error(error))
+      (error) => this.subject.error(error.json()))
+      return this.subject.asObservable()
+  }
+
+  loadMessagesPart(page=1, items=6) {
+    return this.http.get(`messages?page=${page}&items=${items}`)
   }
 
   addMessage(message) {

@@ -1,43 +1,33 @@
 <ion-header>
-    <ion-navbar>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>Messages</ion-title>
-    </ion-navbar>
-  </ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Messages</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content>
-
-  <ion-refresher (ionRefresh)="messagesService.loadMessages($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>    
+    <ion-refresher (ionRefresh)="refresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
   <div *ngIf="selectedItem; else allItems">
-      <text-message
-      *ngIf="selectedItem.type == 0"
-      [message]="selectedItem"
-      [fullscreen]="true"></text-message>
-      <image-message
-      *ngIf="selectedItem.type == 1"
-      [message]="selectedItem"
-      [fullscreen]="true"></image-message>
+    <text-message *ngIf="selectedItem.type == 0" [message]="selectedItem" [fullscreen]="true"></text-message>
+    <image-message *ngIf="selectedItem.type == 1" [message]="selectedItem" [fullscreen]="true"></image-message>
   </div>
   <ng-template #allItems>
+
     <ion-list>
-      <div *ngFor="let message of messagesService.subject | async"
-        (click)="itemTapped($event, message)">
-        <text-message 
-          *ngIf="message.type == 0"
-          [message]="message"
-          [fullscreen]="false">
+      <div *ngFor="let message of messagesService.subject | async" (click)="itemTapped($event, message)">
+        <text-message *ngIf="message.type == 0" [message]="message" [fullscreen]="false">
         </text-message>
-        <image-message *ngIf="message.type == 1"
-          [message]="message"
-          [fullscreen]="false">
+        <image-message *ngIf="message.type == 1" [message]="message" [fullscreen]="false">
         </image-message>
       </div>
-
     </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
   </ng-template>
 
 </ion-content>

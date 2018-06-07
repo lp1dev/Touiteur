@@ -88,3 +88,15 @@
 - Update the post page with real user data and image upload
 - Add the Profile page
 - Add a logout usersService method + button on the profile
+
+## Part 9
+
+- add the infinite scroll on the messages
+    - add a loadMessagesPartial methods, not pushing in the subject to load only a part of the messages to append
+- add the ws notifications https://ionicframework.com/docs/native/local-notifications/ w/ local push
+- add the messages reload on ionViewWillEnter()
+- add the token save in the localStorage
+
+## Part 10
+
+- add a modal on the click of the image

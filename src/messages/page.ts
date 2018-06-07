@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { MessagesService } from './service';
+import { Message } from './models';
 
 @Component({
   selector: 'messages-list',
@@ -9,6 +10,8 @@ import { MessagesService } from './service';
 })
 export class MessagesPage implements OnInit{
   selectedItem: any
+  messages: Array<Message>
+  page: number = 1
 
   constructor(
     public navCtrl: NavController, 
@@ -19,16 +22,46 @@ export class MessagesPage implements OnInit{
     this.selectedItem = navParams.get('message')
   }
 
+  ionViewWillEnter() {
+    this.messagesService.loadMessages()
+  }
+
   ngOnInit() {
     this
       .messagesService
+      .subject
+      .subscribe(messages => {
+        this.messages = messages
+      })
+  }
+
+  refresh(refresher) {
+    this
+      .messagesService
       .loadMessages()
+      .subscribe(messages => {
+        this.messages = messages
+        refresher.complete()
+      })
+  }
+
+  doInfinite(infiniteScroll) {
+    this
+      .messagesService
+      .loadMessagesPart(this.page + 1)
+      .subscribe(response => {
+        const messages = response.json()
+        if (messages.length) {
+          this.page++
+        }
+        messages.forEach(message => this.messages.push(message))
+        infiniteScroll.complete()
+      }, error => console.error(error))
   }
 
   itemTapped(event, message) {
-    // That's right, we're pushing to ourselves!
     this.navCtrl.push(MessagesPage, {
       message: message
-    });
+    })
   }
 }

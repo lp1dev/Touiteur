@@ -2,9 +2,9 @@ import { Component } from "@angular/core";
 import { Message } from "../../messages/models";
 import { MessagesService } from "../../messages/service";
 import { NavController } from "ionic-angular";
-import { MessagesPage } from "../../messages/page";
 import { Base64 } from "@ionic-native/base64";
 import { ImagePicker } from "@ionic-native/image-picker";
+import { MessagesPage } from "../page";
 
 @Component({
   selector: 'post-page',
@@ -53,7 +53,8 @@ export class PostPage {
     this.messagesService
         .addMessage(this.message)
         .subscribe(response => {
-          this.navCtrl.push(MessagesPage)
+          this.navCtrl.setRoot(MessagesPage)
+          this.navCtrl.popToRoot({})
         }, error => console.error(error))
   }
 }

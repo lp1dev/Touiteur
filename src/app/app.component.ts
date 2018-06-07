@@ -7,6 +7,7 @@ import { MessagesPage } from '../messages/page';
 import { LoginPage } from '../users/login/page';
 import { UserService } from '../users/service';
 import { ProfilePage } from '../users/profile/page';
+import { WebSocketService } from '../shared/websocket.service';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,7 +22,8 @@ export class MyApp {
   constructor(public platform: Platform, 
     public statusBar: StatusBar, 
     public splashScreen: SplashScreen,
-    public userService: UserService) {
+    public userService: UserService,
+    public webSocketService: WebSocketService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
